@@ -14,7 +14,8 @@ class CreateArticles < ActiveRecord::Migration[5.2]
       t.datetime :deleted_at
 
       t.index :uuid
-      t.index :slug
+      t.index :slug, unique: true
+      t.index :title, unique: true
       t.index :published_at
       t.index :deleted_at
     end

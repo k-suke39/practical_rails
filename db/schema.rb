@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_22_132110) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_03_142217) do
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -77,8 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_132110) do
     t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["deleted_at"], name: "index_articles_on_deleted_at"
     t.index ["published_at"], name: "index_articles_on_published_at"
-    t.index ["slug"], name: "index_articles_on_slug"
-    t.index ["title", "slug"], name: "index_articles_on_title_and_slug", unique: true
+    t.index ["slug"], name: "index_articles_on_slug", unique: true
     t.index ["title"], name: "index_articles_on_title", unique: true
     t.index ["uuid"], name: "index_articles_on_uuid"
   end
