@@ -80,7 +80,6 @@ class Article < ApplicationRecord
                   controller.render_to_string("shared/_embed_#{embed.embed_type}", locals: { embed: embed }, layout: false)
                 end
     end
-    
     result
   end
 
