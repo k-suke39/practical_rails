@@ -96,6 +96,7 @@ class Article < ApplicationRecord
 
   def adjust_state
     return if draft?
+
     self.state = if publishable?
                    :published
                  else
