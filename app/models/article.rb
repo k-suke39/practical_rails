@@ -62,7 +62,7 @@ class Article < ApplicationRecord
   scope :viewable, -> { published.where('published_at < ?', Time.current) }
   scope :new_arrivals, -> { viewable.order(published_at: :desc) }
   scope :by_category, ->(category_id) { where(category_id:) }
-  scope :by_tag, ->(tag_id) { joins(:article_tags).where(article_tags: { tag_id:}) }
+  scope :by_tag, ->(tag_id) { joins(:article_tags).where(article_tags: { tag_id: }) }
   scope :by_author, ->(author_id) { where(author_id:) }
   scope :title_contain, ->(word) { where('title LIKE ?', "%#{word}%") }
   scope :body_contain, ->(body) { joins(:sentences).merge(where('sentences.body LIKE ?', "%#{body}%")) }
